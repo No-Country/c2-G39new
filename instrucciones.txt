@@ -1,0 +1,17 @@
+//Es una librería que nos permite estilizar nuestros componentes de React.
+
+npm install --save styled-components 
+
+//paquetes que se debe instalar par usar iconos
+
+npm install --save @fortawesome/fontawesome-svg-core
+
+npm install --save @fortawesome/free-solid-svg-icons
+
+npm install --save @fortawesome/react-fontawesome
+
+//usar los iconos
+
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+
+import {faCoffee} from "@fortawesome/free-solid-svg-icons"
