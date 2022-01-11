@@ -17,11 +17,11 @@ import {Formulario,
  
   
   const [usuario, cambiarUsuario] = useState({campo: '', valido: null});
-  const [name, cambiarNombre] = useState({campo: '', valido: null});
+  // const [name, cambiarNombre] = useState({campo: '', valido: null});
   const [password, cambiarPassword] = useState({campo: '', valido: null});
   const [password2, cambiarPassword2] = useState({campo: '', valido: null});
   const [correo, cambiarCorreo] = useState({campo: '', valido: null});
-  const [telefono, cambiarTelefono] = useState({campo: '', valido: null});
+  // const [telefono, cambiarTelefono] = useState({campo: '', valido: null});
   const [terminos, cambiarTerminos] = useState(false);
   const [formularioValido, cambiarFormularioValido] = useState(null);
   
@@ -30,7 +30,7 @@ import {Formulario,
   nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}/,  //letras y espacios, puede llevar acentos
   password: /^.{4,12}$/, //4 a 12 digitos
   correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-  telefono: /^\d{7,14}$/ //7 a 14 numeros
+  // telefono: /^\d{7,14}$/ //7 a 14 numeros
   }
   
   const validarPassword2 = () => {
@@ -57,20 +57,20 @@ import {Formulario,
     
       if(
         usuario.valido === 'true' && 
-        name.valido === 'true' &&
+        // name.valido === 'true' &&
         password.valido === 'true' &&
         password2.valido === 'true' &&
         correo.valido === 'true' &&
-        telefono.valido === 'true' &&
+        // telefono.valido === 'true' &&
         terminos
         ) {
           cambiarFormularioValido(true);
           cambiarUsuario({campo:'', valido: ''});
-          cambiarNombre({campo:'', valido: null});
+          // cambiarNombre({campo:'', valido: null});
           cambiarPassword({campo:'', valido: null});
           cambiarPassword2({campo:'', valido:'null'});
           cambiarCorreo({campo:'', valido: null});
-          cambiarTelefono({campo:'', valido: null});
+          // cambiarTelefono({campo:'', valido: null});
         }else {
           cambiarFormularioValido(false);
         }
@@ -91,7 +91,7 @@ import {Formulario,
         expresionRegular={expresiones.usuario}
     
       />
-    <Input
+    {/* <Input
       estado={name}
       cambiarEstado={cambiarNombre}
       type="text"
@@ -101,7 +101,7 @@ import {Formulario,
         leyendaError="El nombre solo puede contener letras y espacios"
         expresionRegular={expresiones.nombre}
     
-      />
+      /> */}
     
     <Input
       estado={password}
@@ -138,7 +138,7 @@ import {Formulario,
     
       />
     
-    <Input
+    {/* <Input
       estado={telefono}
       cambiarEstado={cambiarTelefono}
       type="text"
@@ -148,7 +148,7 @@ import {Formulario,
         leyendaError="El telefono solo puede contener numeros"
         expresionRegular={expresiones.telefono}
     
-      />
+      /> */}
     
     
       
