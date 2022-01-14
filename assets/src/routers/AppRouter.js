@@ -1,17 +1,17 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "../views/Home";
-import Registro from "../views/Registro";
+import Home from "../pages/Home";
+import Registro from "../pages/Registro";
 
-const App = () => {
+const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route path="/register" element={<Registro />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );
 };
 
-export default App;
+export default AppRouter;
