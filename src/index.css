@@ -1,15 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap'); 
 
-
 *{
   box-sizing: border-box;
-  /* color: #18a724 */
+  /* color: #18a724  */
 }
 
 body {
   background: #000000;
   font-family: 'Orbitron', sans-serif;
-  color: #18a724 
+  color: #18a724
 }
 
 main{
@@ -17,5 +16,4 @@ main{
 width:90%;
 margin: auto;
 padding: 40px;
-font-family:"";
 }
