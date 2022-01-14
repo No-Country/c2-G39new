@@ -1,20 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap'); 
 
-
 *{
   box-sizing: border-box;
-  /* color: #18a724 */
+  /* color: #18a724  */
 }
 
 body {
   background: #000000;
   color: #18a724;
   font-family: 'Orbitron', sans-serif;
+<<<<<<< HEAD:django_react_demo/inventory/static/index.css
+=======
+  color: #18a724
+>>>>>>> 202e2a7e9c45d1db6a3464a8fd91bce4fe0028ea:src/index.css
 }
 
 main{
   max-width: 800px;
+<<<<<<< HEAD:django_react_demo/inventory/static/index.css
   width:90%;
   margin: auto;
   padding: 40px;
+=======
+width:90%;
+margin: auto;
+padding: 40px;
+>>>>>>> 202e2a7e9c45d1db6a3464a8fd91bce4fe0028ea:src/index.css
 }
