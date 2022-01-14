@@ -29,7 +29,8 @@ cursor: pointer;
 ${props => props.valido === 'false' && css`
 color: ${colores.error}
 `}
-`;
+`
+; 
 
 const GrupoInput = styled.div`  
 position: relative;
