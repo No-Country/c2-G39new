@@ -8,14 +8,13 @@
 
 body {
   background: #000000;
+  color: #18a724;
   font-family: 'Orbitron', sans-serif;
-  color: #18a724 
 }
 
 main{
   max-width: 800px;
-width:90%;
-margin: auto;
-padding: 40px;
-font-family:"";
+  width:90%;
+  margin: auto;
+  padding: 40px;
 }
