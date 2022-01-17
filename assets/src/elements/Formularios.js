@@ -32,7 +32,7 @@ ${props => props.valido === 'false' && css`
 
 const GrupoInput = styled.div`  
     position: relative;
-    z-index:90; /*queda por arriba*/
+    z-index:1; /*queda por arriba*/
 `;
 
 const Input = styled.input`
