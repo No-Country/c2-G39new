@@ -1,0 +1,23 @@
+{% load render_bundle from webpack_loader %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <enlace rel="preconectar" href="https://fonts.googleapis.com">
+  <enlace rel="preconectar" href="https://fonts.gstatic.com" crossorigin>
+  <enlace href="https: //fonts.googleapis.com/css2? familia = Orbitron &family= Red+Hat+Mono:ital,wght@0,300;0,400;1,300 & family= Zen+Antique & display=swap" rel="hoja de estilo">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  <title>Cripto Check</title>
+</head>
+<body>
+  <div id="root"></div>
+  {% csrf_token %}
+  {% render_bundle "main" %}
+</body>
+</html>

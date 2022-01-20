@@ -11,6 +11,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import Input from "../components/Input";
+import authRepository from "../api/authRepository";
 
 const Registro = () => {
   const [usuario, cambiarUsuario] = useState({ campo: "", valido: null });
@@ -56,12 +57,18 @@ const Registro = () => {
       correo.valido === "true" &&
       terminos
     ) {
-      const data = {
-        usuario: usuario.campo,
-        password: password.campo,
-        correo: correo.campo,
+      const user = {
+        "username": usuario.campo,
+        "password1": password.campo,
+        "password2": password2.campo,
+        "email": correo.campo,
       };
-      console.log(data);
+      authRepository().signUp(user)
+        .then((r) => {
+          alert("Usuario creado")
+        })
+        .catch((e) => alert("Algo salió mal"));
+
       cambiarFormularioValido(true);
       cambiarUsuario({ campo: "", valido: null });
       cambiarPassword({ campo: "", valido: null });
@@ -84,18 +91,6 @@ const Registro = () => {
           leyendaError="El usuario tiene que ser de 4 a 16 digitos y solo puede contener numeros, letras y guion bajo"
           expresionRegular={expresiones.usuario}
         />
-        {/* <Input
-      estado={name}
-      cambiarEstado={cambiarNombre}
-      type="text"
-        label="Nombre:"
-        placeholder="John Doe"
-        name="Usuario"
-        leyendaError="El nombre solo puede contener letras y espacios"
-        expresionRegular={expresiones.nombre}
-    
-      /> */}
-
         <Input
           estado={password}
           cambiarEstado={cambiarPassword}
@@ -106,7 +101,6 @@ const Registro = () => {
           leyendaError="La contraseña debe de ser de 4 a 12 digitos."
           expresionRegular={expresiones.password}
         />
-
         <Input
           estado={password2}
           cambiarEstado={cambiarPassword2}
@@ -116,7 +110,6 @@ const Registro = () => {
           leyendaError="Ambas contraseñas deben de ser iguales."
           funcion={validarPassword2}
         />
-
         <Input
           estado={correo}
           cambiarEstado={cambiarCorreo}
@@ -127,7 +120,6 @@ const Registro = () => {
           leyendaError="El correo tiene que ser de un formato valido"
           expresionRegular={expresiones.correo}
         />
-
         <ContenedorTerminos>
           <Label>
             <input

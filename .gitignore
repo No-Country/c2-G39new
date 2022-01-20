@@ -11,12 +11,18 @@
 # production
 /build
 
+# migrations
+migrations
+
 # bundles
 /assets/bundles
 webpack-stats.json
 
 # virtualenv
 /env
+
+# media
+media
 
 # misc
 .DS_Store

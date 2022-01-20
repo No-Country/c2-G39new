@@ -137,7 +137,4 @@
         color:silver;
         transition: 250ms;
     }
-    Button{
-        display: none;
-    }
 }
