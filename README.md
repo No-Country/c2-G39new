@@ -19,7 +19,7 @@ Este proyecto está siendo desarrollado con ReactJS para el FrontEnd y Django pa
 
 5. Instalar dependencias de python ejecutando:
 
-### `pip install requirements.txt`
+### `pip install -r requirements.txt`
 
 6. Compilar el bundle de webpack para ser consumido por Django ejecutando:
 
