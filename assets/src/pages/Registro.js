@@ -91,6 +91,17 @@ const Registro = () => {
           leyendaError="El usuario tiene que ser de 4 a 16 digitos y solo puede contener numeros, letras y guion bajo"
           expresionRegular={expresiones.usuario}
         />
+
+          <Input
+                    estado={correo}
+                    cambiarEstado={cambiarCorreo}
+                    type="email"
+                    label="Correo:"
+                    placeholder="Correo@correo.com"
+                    name="correo"
+                    leyendaError="El correo tiene que ser de un formato valido"
+                    expresionRegular={expresiones.correo}
+                  />
         <Input
           estado={password}
           cambiarEstado={cambiarPassword}
@@ -110,16 +121,7 @@ const Registro = () => {
           leyendaError="Ambas contraseñas deben de ser iguales."
           funcion={validarPassword2}
         />
-        <Input
-          estado={correo}
-          cambiarEstado={cambiarCorreo}
-          type="email"
-          label="Correo:"
-          placeholder="Correo@correo.com"
-          name="correo"
-          leyendaError="El correo tiene que ser de un formato valido"
-          expresionRegular={expresiones.correo}
-        />
+        
         <ContenedorTerminos>
           <Label>
             <input

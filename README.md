@@ -23,7 +23,7 @@ Este proyecto está siendo desarrollado con ReactJS para el FrontEnd y Django pa
 
 6. Compilar el bundle de webpack para ser consumido por Django ejecutando:
 
-### `npm build`
+### `npm run build`
 Ejecuta un script definido en el package.json
 
 7. En otra consola con el entorno de desarollo de python activado levantar el servidor de Django ejecutando:
