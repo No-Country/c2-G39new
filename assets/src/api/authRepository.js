@@ -58,8 +58,6 @@ export default function authRepository() {
         baseURL: baseUrl,
         headers: headers,
       });
-      console.log(user);
-      console.log(csrftoken);
       instance
         .post("registration/", user)
         .then((r) => {
@@ -67,7 +65,6 @@ export default function authRepository() {
           resolve(r.data);
         })
         .catch((e) => {
-          console.log(e);
           reject(e.response);
         });
     });

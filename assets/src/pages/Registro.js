@@ -67,7 +67,15 @@ const Registro = () => {
         .then((r) => {
           alert("Usuario creado")
         })
-        .catch((e) => alert("Algo salió mal"));
+        .catch((e) => {
+          var textError = ""
+          for (var key in e.data) {
+            if (e.data.hasOwnProperty(key)) {
+              textError += "- " + e.data[key] + "\n"
+            }
+          }
+          alert("Algo salió mal:\n" + textError)
+        });
 
       cambiarFormularioValido(true);
       cambiarUsuario({ campo: "", valido: null });
