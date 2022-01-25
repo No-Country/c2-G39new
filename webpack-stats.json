@@ -1,0 +1,18 @@
+{
+  "status": "done",
+  "assets": {
+    "main-bb0a4fa3e99f96875c2f.js": {
+      "name": "main-bb0a4fa3e99f96875c2f.js",
+      "path": "C:\\Users\\admin\\Documents\\PROYECTOS\\c2-G39new\\django_react_demo\\static\\dist\\main-bb0a4fa3e99f96875c2f.js"
+    },
+    "main-bb0a4fa3e99f96875c2f.js.LICENSE.txt": {
+      "name": "main-bb0a4fa3e99f96875c2f.js.LICENSE.txt",
+      "path": "C:\\Users\\admin\\Documents\\PROYECTOS\\c2-G39new\\django_react_demo\\static\\dist\\main-bb0a4fa3e99f96875c2f.js.LICENSE.txt"
+    }
+  },
+  "chunks": {
+    "main": [
+      "main-bb0a4fa3e99f96875c2f.js"
+    ]
+  }
+}

@@ -16,7 +16,7 @@ migrations
 
 # bundles
 bundles
-webpack-stats.json
+#webpack-stats.json
 
 # virtualenv
 /env
