@@ -7,14 +7,16 @@ const colores = {
     exito: "18a724"
 }
 
+
 const Formulario = styled.form`
     display: grid; /*trabajamos con grid*/
     grid-template-columns: 1fr 1fr; /*trabajamos con dos columnas*/
     gap: 20px; /*separacion entre columnas y filas*/
-    background: #000000
+    background: #000000;
 
-@media (max-width: 800px) {
-    grid-template-columns: 1fr;
+@media(max-width: 767px) {
+    /*grid-template-columns : 1fr;*/
+    display: block;
 }
 `;
 
@@ -102,7 +104,7 @@ input{
 }
 
 @media (min-width: 800px){
-    grid-column: span 1;
+    grid-column: span 2;
 }
 `;
 
@@ -128,7 +130,7 @@ const Boton = styled.button`
     transition: 1s ease all;
 
 &:hover{
-    box-shadow: 3px 30px 0px rgba(163, 163, 163, 1);
+    box-shadow: 3px 4px 0px rgba(163, 163, 163, 1);
 }
 `;
 
@@ -144,6 +146,7 @@ const MensajeError = styled.div`
     padding: 0px 15px;
     border-radius: 3px;
     grid-column: span 2;
+    text-align: center;
 p{
     margin: 0;
 }
