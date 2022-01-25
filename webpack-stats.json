@@ -1,18 +1,18 @@
 {
   "status": "done",
   "assets": {
-    "main-bb0a4fa3e99f96875c2f.js": {
-      "name": "main-bb0a4fa3e99f96875c2f.js",
-      "path": "C:\\Users\\admin\\Documents\\PROYECTOS\\c2-G39new\\django_react_demo\\static\\dist\\main-bb0a4fa3e99f96875c2f.js"
+    "main-23b7038f0d516239ae08.js": {
+      "name": "main-23b7038f0d516239ae08.js",
+      "path": "C:\\Users\\admin\\Documents\\PROYECTOS\\c2-G39new-deploy\\static\\dist\\main-23b7038f0d516239ae08.js"
     },
-    "main-bb0a4fa3e99f96875c2f.js.LICENSE.txt": {
-      "name": "main-bb0a4fa3e99f96875c2f.js.LICENSE.txt",
-      "path": "C:\\Users\\admin\\Documents\\PROYECTOS\\c2-G39new\\django_react_demo\\static\\dist\\main-bb0a4fa3e99f96875c2f.js.LICENSE.txt"
+    "main-23b7038f0d516239ae08.js.LICENSE.txt": {
+      "name": "main-23b7038f0d516239ae08.js.LICENSE.txt",
+      "path": "C:\\Users\\admin\\Documents\\PROYECTOS\\c2-G39new-deploy\\static\\dist\\main-23b7038f0d516239ae08.js.LICENSE.txt"
     }
   },
   "chunks": {
     "main": [
-      "main-bb0a4fa3e99f96875c2f.js"
+      "main-23b7038f0d516239ae08.js"
     ]
   }
 }

@@ -9,11 +9,11 @@ module.exports = {
   entry: "./src/index.js",
 
   output: {
-    path: path.resolve("../django_react_demo/static/dist"),
+    path: path.resolve("../static/dist"),
     filename: "[name]-[hash].js",
   },
 
-  plugins: [new BundleTracker({ filename: "../django_react_demo/webpack-stats.json" })],
+  plugins: [new BundleTracker({ filename: "../webpack-stats.json" })],
 
   module: {
     rules: [

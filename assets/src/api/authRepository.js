@@ -3,7 +3,7 @@ import axios from "axios";
 export default function authRepository() {
   let debug = true;
 
-  let baseUrl = window.location
+  let baseUrl = window.location.origin + "/api/dj-rest-auth"
   //let baseUrl = "http://127.0.0.1:8000/api/dj-rest-auth";
 
   const tokenName = "user_token";
@@ -59,6 +59,7 @@ export default function authRepository() {
         baseURL: baseUrl,
         headers: headers,
       });
+      console.log(baseUrl)
       console.log(user);
       console.log(csrftoken);
       instance
