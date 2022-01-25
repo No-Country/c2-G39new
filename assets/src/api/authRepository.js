@@ -3,7 +3,8 @@ import axios from "axios";
 export default function authRepository() {
   let debug = true;
 
-  let baseUrl = "http://127.0.0.1:8000/api/dj-rest-auth";
+  let baseUrl = window.location
+  //let baseUrl = "http://127.0.0.1:8000/api/dj-rest-auth";
 
   const tokenName = "user_token";
 
