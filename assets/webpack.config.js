@@ -13,7 +13,7 @@ module.exports = {
     filename: "[name]-[hash].js",
   },
 
-  plugins: [new BundleTracker({ filename: "./django_react_demo/webpack-stats.json" })],
+  plugins: [new BundleTracker({ filename: "./webpack-stats.json" })],
 
   module: {
     rules: [
