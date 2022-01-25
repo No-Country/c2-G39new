@@ -1,12 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import authRepository from "../api/authRepository";
 
-export default class Dashboard extends React.Component {
-    render() {
-      return (
-        <div className="container">
-          <h1>Contact us</h1>
-        </div>
-      )
-    }
-  }
+const Dashboard = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    authRepository()
+      .logOut()
+      .then((r) => {
+        navigate("/");
+      });
+  };
+
+  return (
+    <div className="container">
+      <h1>Dashboard</h1>
+      <button onClick={handleClick}>Logout</button>
+    </div>
+  );
+};
+
+export default Dashboard;

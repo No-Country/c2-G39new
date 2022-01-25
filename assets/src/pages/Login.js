@@ -1,87 +1,46 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import {
   Formulario,
-  // Label,
-  // ContenedorTerminos,
   ContenedorBotonCentrado,
   Boton,
-  // MensajeError,
-  MensajeExito,
 } from "../elements/Formularios";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import Input from "../components/Input";
 import authRepository from "../api/authRepository";
 import "../components/Styles/login.css";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [usuario, cambiarUsuario] = useState({ campo: "", valido: null });
   const [password, cambiarPassword] = useState({ campo: "", valido: null });
-  // const [password2, cambiarPassword2] = useState({ campo: "", valido: null });
-  // const [correo, cambiarCorreo] = useState({ campo: "", valido: null });
-  // const [terminos, cambiarTerminos] = useState(false);
-  // const [formularioValido, cambiarFormularioValido] = useState(null);
 
-  const expresiones = {
+/*   const expresiones = {
     usuario: /^[a-zA-Z0-9_-]{4,16}$/, //letras en mayusculas, minusculas, numeros y guion bajo
-    // nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}/, //letras y espacios, puede llevar acentos
     password: /^.{4,12}$/, //4 a 12 digitos
-    // correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    // telefono: /^\d{7,14}$/ //7 a 14 numeros
-  };
-
-  // const validarPassword2 = () => {
-  //   if (password.campo.length > 0) {
-  //     if (password.campo !== password2.campo) {
-  //       cambiarPassword2((prevState) => {
-  //         return { ...prevState, valido: "false" };
-  //       });
-  //     } else {
-  //       cambiarPassword2((prevState) => {
-  //         return { ...prevState, valido: "true" };
-  //       });
-  //     }
-  //   }
-  // };
-
-  // const onChangeTerminos = (e) => {
-  //   cambiarTerminos(e.target.checked);
-  // };
+  }; */
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (
+    /*     if (
       usuario.valido === "true" &&
       password.valido === "true" 
-      // &&
-      // password2.valido === "true" &&
-      // correo.valido === "true" &&
-      // terminos
-    ) {
-      const user = {
-        "username": usuario.campo,
-        "password1": password.campo,
-        // "password2": password2.campo,
-        // "email": correo.campo,
-      };
-      authRepository().signUp(user)
-        .then((r) => {
-          alert("Usuario creado")
-        })
-        .catch((e) => alert("Algo salió mal"));
+    ) { */
+    const user = {
+      username: usuario.campo,
+      password: password.campo,
+    };
+    authRepository()
+      .logIn(user)
+      .then((r) => {
+        navigate("/dashboard");
+      })
+      .catch((e) => alert("Usuario o contraseña incorrecta"));
 
-      // cambiarFormularioValido(true);
-      cambiarUsuario({ campo: "", valido: null });
-      cambiarPassword({ campo: "", valido: null });
-      // cambiarPassword2({ campo: "", valido: null });
-      // cambiarCorreo({ campo: "", valido: null });
-    } 
-    // else {
-    //   cambiarFormularioValido(false);
-    // }
+    cambiarUsuario({ campo: "", valido: null });
+    cambiarPassword({ campo: "", valido: null });
+    /* } */
   };
   return (
     <main>
@@ -93,8 +52,8 @@ const Login = () => {
           label="Usuario:"
           placeholder="Usuario"
           name="usuario"
-          leyendaError="Usuario incorrecto"
-          expresionRegular={expresiones.usuario}
+          //leyendaError="Usuario incorrecto"
+          //expresionRegular={expresiones.usuario}
         />
         <Input
           estado={password}
@@ -102,62 +61,22 @@ const Login = () => {
           type="password"
           label="Contraseña:"
           placeholder="Contraseña"
-          name="password1"
-          leyendaError="Contraseña incorrecta."
-          expresionRegular={expresiones.password}
+          name="password"
+          //leyendaError="Contraseña incorrecta."
+          //expresionRegular={expresiones.password}
         />
-        {/* <Input
-          // estado={password2}
-          // cambiarEstado={cambiarPassword2}
-          type="password"
-          label="Repetir contraseña:"
-          name="password2"
-          leyendaError="Ambas contraseñas deben de ser iguales."
-          funcion={validarPassword2}
-        /> */}
-        {/* <Input
-          estado={correo}
-          cambiarEstado={cambiarCorreo}
-          type="email"
-          label="Correo:"
-          placeholder="Correo@correo.com"
-          name="correo"
-          leyendaError="El correo tiene que ser de un formato valido"
-          expresionRegular={expresiones.correo}
-        /> */}
-        {/* <ContenedorTerminos>
-          <Label>
-            <input
-              type="checkbox"
-              name="terminos"
-              id="terminos"
-              checked={terminos}
-              onChange={onChangeTerminos}
-            />
-            Acepto los terminos y condiciones
-          </Label>
-        </ContenedorTerminos>
-        {formularioValido === false && (
-          <MensajeError>
-            <p>
-              <FontAwesomeIcon icon={faExclamationTriangle} />
-              <b>Error: </b>Por favor rellene el formulario correctamente.
-            </p>
-          </MensajeError>
-        )} */}
         <ContenedorBotonCentrado>
           <Boton type="submit">Enviar</Boton>
-          {/* {formularioValido === true && (
-            <MensajeExito>
-              ¡El formulario se ha enviado exitosamente!
-            </MensajeExito>
-          )} */}
         </ContenedorBotonCentrado>
       </Formulario>
 
-      <h1 className="form-registro">¿Todavía no te registraste? ¡Completá nuestro formulario de "
-        <Link to="/register" className="Link">Registro</Link>" y sumate!
-       </h1>
+      <h1 className="form-registro">
+        ¿Todavía no te registraste? ¡Completá nuestro formulario de "
+        <Link to="/register" className="Link">
+          Registro
+        </Link>
+        " y sumate!
+      </h1>
     </main>
   );
 };

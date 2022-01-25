@@ -26,7 +26,6 @@ const Registro = () => {
     nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}/, //letras y espacios, puede llevar acentos
     password: /^.{4,12}$/, //4 a 12 digitos
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    // telefono: /^\d{7,14}$/ //7 a 14 numeros
   };
 
   const validarPassword2 = () => {
@@ -58,23 +57,24 @@ const Registro = () => {
       terminos
     ) {
       const user = {
-        "username": usuario.campo,
-        "password1": password.campo,
-        "password2": password2.campo,
-        "email": correo.campo,
+        username: usuario.campo,
+        password1: password.campo,
+        password2: password2.campo,
+        email: correo.campo,
       };
-      authRepository().signUp(user)
+      authRepository()
+        .signUp(user)
         .then((r) => {
-          alert("Usuario creado")
+          alert("Usuario creado");
         })
         .catch((e) => {
-          var textError = ""
+          var textError = "";
           for (var key in e.data) {
             if (e.data.hasOwnProperty(key)) {
-              textError += "- " + e.data[key] + "\n"
+              textError += "- " + e.data[key] + "\n";
             }
           }
-          alert("Algo salió mal:\n" + textError)
+          alert("Algo salió mal:\n" + textError);
         });
 
       cambiarFormularioValido(true);
@@ -100,16 +100,16 @@ const Registro = () => {
           expresionRegular={expresiones.usuario}
         />
 
-          <Input
-                    estado={correo}
-                    cambiarEstado={cambiarCorreo}
-                    type="email"
-                    label="Correo:"
-                    placeholder="Correo@correo.com"
-                    name="correo"
-                    leyendaError="El correo tiene que ser de un formato valido"
-                    expresionRegular={expresiones.correo}
-                  />
+        <Input
+          estado={correo}
+          cambiarEstado={cambiarCorreo}
+          type="email"
+          label="Correo:"
+          placeholder="Correo@correo.com"
+          name="correo"
+          leyendaError="El correo tiene que ser de un formato valido"
+          expresionRegular={expresiones.correo}
+        />
         <Input
           estado={password}
           cambiarEstado={cambiarPassword}
@@ -129,7 +129,7 @@ const Registro = () => {
           leyendaError="Ambas contraseñas deben de ser iguales."
           funcion={validarPassword2}
         />
-        
+
         <ContenedorTerminos>
           <Label>
             <input

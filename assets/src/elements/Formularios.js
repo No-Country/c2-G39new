@@ -14,9 +14,9 @@ const Formulario = styled.form`
     gap: 20px; /*separacion entre columnas y filas*/
     background: #000000;
 
-@media(max-width: 800px) {
-    grid-template-columns : 1fr;
-    
+@media(max-width: 767px) {
+    /*grid-template-columns : 1fr;*/
+    display: block;
 }
 `;
 

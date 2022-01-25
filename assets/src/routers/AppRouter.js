@@ -7,18 +7,26 @@ import Contact from "../pages/Contact";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Dashboard from "../pages/Dashboard";
+import PrivateRoute from "./PrivateRoute";
 
 const AppRouter = () => {
   return (
     <BrowserRouter>
       <Navbar />
-        <Routes>
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard/>} />
-          <Route path="/register" element={<Registro />} />
-          <Route path="/" element={<Home />} />
-        </Routes>
+      <Routes>
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route path="/register" element={<Registro />} />
+        <Route path="/" element={<Home />} />
+      </Routes>
       <Footer />
     </BrowserRouter>
   );

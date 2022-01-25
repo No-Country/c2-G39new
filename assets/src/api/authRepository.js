@@ -1,15 +1,15 @@
 import axios from "axios";
 
 export default function authRepository() {
-  let debug = true;
+  /* let debug = true; */
 
   let baseUrl = "http://127.0.0.1:8000/api/dj-rest-auth";
 
   const tokenName = "user_token";
 
-  const getLocalToken = () => {
+/*   const getLocalToken = () => {
     return JSON.parse(localStorage.getItem(tokenName));
-  };
+  }; */
 
   //Funcion para obtener el token CSRF
   function getCookie(name) {
@@ -44,9 +44,9 @@ export default function authRepository() {
         .post("login/", user)
         .then((r) => {
           localStorage.setItem(tokenName, r.data.key);
+          resolve(r.data)
         })
         .catch((e) => {
-          console.log(e);
           reject(e.response);
         });
     });
@@ -84,7 +84,6 @@ export default function authRepository() {
           resolve(r.data);
         })
         .catch((e) => {
-          console.log(e);
           reject(e.response);
         });
     });
