@@ -159,7 +159,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_ROOT = BASE_DIR / "static/media"
 MEDIA_URL = "/media/"
 
-if config('DJANGO_PRODUCTION_ENV', default=False, cast=bool):
+if config('DJANGO_PRODUCTION', default=False, cast=bool):
     WEBPACK_LOADER = {
         "DEFAULT": {
             "CACHE": not DEBUG,
@@ -195,5 +195,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 import django_heroku
 django_heroku.settings(locals())
 
-if config('DJANGO_PRODUCTION_ENV', default=False, cast=bool):
+if config('DJANGO_PRODUCTION', default=False, cast=bool):
     from .settings_production import *
