@@ -12,8 +12,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import Input from "../components/Input";
 import authRepository from "../api/authRepository";
+import { useNavigate } from "react-router-dom";
 
 const Registro = () => {
+  const navigate = useNavigate()
   const [usuario, cambiarUsuario] = useState({ campo: "", valido: null });
   const [password, cambiarPassword] = useState({ campo: "", valido: null });
   const [password2, cambiarPassword2] = useState({ campo: "", valido: null });
@@ -66,6 +68,7 @@ const Registro = () => {
         .signUp(user)
         .then((r) => {
           alert("Usuario creado");
+          navigate("/login")
         })
         .catch((e) => {
           var textError = "";

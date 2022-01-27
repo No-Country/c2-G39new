@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import os
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,10 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-6b_b-ojvs@b)%&#0=btl@q_)6m&*-v_j-qspknrd$nhdbl#(yr"
+SECRET_KEY = config("SECRET_KEY", default="django-insecure-6b_b-ojvs@b)%&#0=btl@q_)6m&*-v_j-qspknrd$nhdbl#(yr")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = config("DJANGO_DEBUG", default=True)
 
 ALLOWED_HOSTS = ["*"]
 
@@ -145,8 +146,8 @@ STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 STATICFILES_DIRS = [
-    #os.path.join(BASE_DIR.parent, "assets"),
     os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "assets"),
 ]
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
@@ -158,14 +159,24 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_ROOT = BASE_DIR / "static/media"
 MEDIA_URL = "/media/"
 
-WEBPACK_LOADER = {
-    "DEFAULT": {
-        "CACHE": not DEBUG,
-        "BUNDLE_DIR_NAME": "dist/",
-        "STATS_FILE": os.path.join(BASE_DIR, "webpack-stats.json"),
-        "POLL_INTERVAL": 0.1,
+if config('DJANGO_PRODUCTION_ENV', default=False, cast=bool):
+    WEBPACK_LOADER = {
+        "DEFAULT": {
+            "CACHE": not DEBUG,
+            "BUNDLE_DIR_NAME": "dist/",
+            "STATS_FILE": os.path.join(BASE_DIR, "webpack-stats-prod.json"),
+            "POLL_INTERVAL": 0.1,
+        }
     }
-}
+else:
+    WEBPACK_LOADER = {
+        "DEFAULT": {
+            "CACHE": not DEBUG,
+            "BUNDLE_DIR_NAME": "bundles/",
+            "STATS_FILE": os.path.join(BASE_DIR, "webpack-stats-dev.json"),
+            "POLL_INTERVAL": 0.1,
+        },
+    }
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -183,3 +194,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 import django_heroku
 django_heroku.settings(locals())
+
+if config('DJANGO_PRODUCTION_ENV', default=False, cast=bool):
+    from .settings_production import *

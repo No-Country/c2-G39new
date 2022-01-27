@@ -6,14 +6,14 @@ module.exports = {
   mode: "development",
   context: __dirname,
 
-  entry: "./assets/src/index.js",
+  entry: "./src/index.js",
 
   output: {
-    path: path.resolve("./assets/bundles/"),
+    path: path.resolve("./bundles"),
     filename: "[name]-[hash].js",
   },
 
-  plugins: [new BundleTracker({ filename: "./webpack-stats.json" })],
+  plugins: [new BundleTracker({ filename: "../webpack-stats-dev.json" })],
 
   module: {
     rules: [
