@@ -15,14 +15,15 @@ class Navbar extends Component {
     render(){
         return(
             <nav className="navbarItems">
-                <h1 className="navbar-logo">Crypto check <i className="fab fab-react"></i></h1>
+                <Link to="/"><h1 className="navbar-logo">Crypto check</h1></Link>
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
                 </div>
                 <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
                     <Link className="nav-link" to="/">Home</Link>
-                    <Link className="nav-link" to="/contact">Contact us</Link>
                     <Link className="nav-link" to="/login">Login</Link>
+                    <Link className="nav-link" to="/contact">About us</Link>
+                    
                     
                     {/* {MenuItems.map((item, index) => {
                 return (
