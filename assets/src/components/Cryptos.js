@@ -28,6 +28,7 @@ function Cryptos({ coins }) {
         type="text"
         placeholder="Search a Coin"
         onChange={(e) => setSearch(e.target.value)}
+        style={{zIndex: 0}}
       />
       <TableCoins coins={coins} search={search} />
     </Contenido>

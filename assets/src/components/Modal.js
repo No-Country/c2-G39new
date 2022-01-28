@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Modal = ({
+  isRed,
   children,
   estado,
   cambiarEstado,
@@ -17,12 +18,13 @@ const Modal = ({
         <Overlay mostrarOverlay={mostrarOverlay} posicionModal={posicionModal}>
           <ContenedorModal padding={padding}>
             {mostrarHeader && (
-              <EncabezadoModal>
+              <EncabezadoModal isRed={isRed}>
                 <h3>{titulo}</h3>
               </EncabezadoModal>
             )}
 
             <BotonCerrar
+              isRed={isRed}
               className="fas fa-times"
               onClick={() => cambiarEstado(false)}
             ></BotonCerrar>
@@ -42,6 +44,7 @@ const Overlay = styled.div`
   position: fixed; /*fijo*/
   top: 0;
   left: 0;
+  z-index: 2;
   background: ${(props) =>
     props.mostrarOverlay
       ? "rgba(0,0,0,0.5)"
@@ -79,7 +82,7 @@ const EncabezadoModal = styled.div`
   h3 {
     font-weight: 500;
     font-size: 16px;
-    color: #18a724;
+    color: ${props => (!props.isRed ? "#18a724" : "red")};
   }
 `;
 
@@ -94,7 +97,7 @@ const BotonCerrar = styled.button`
   cursor: pointer;
   transition: 0.3s ease all;
   border-radius: 5px;
-  color: #18a724;
+  color: ${props => (!props.isRed ? "#18a724" : "red")};
 
   &:hover {
     background: #f2f2f2;

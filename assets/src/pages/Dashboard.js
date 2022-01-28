@@ -27,6 +27,19 @@ const Dashboard = () => {
     });
   };
 
+  const [select, setSelect] = useState("bitcoin")
+  const [precioSelect, setPrecioSelect] = useState()
+  const handleSelect = (e) => {
+    if (e.target.value !== "default") {
+      const coinData = coins.find( coin => coin.id === e.target.value)
+      setSelect(e.target.value)
+      setPrecioSelect(coinData.current_price)
+    }else{
+      setSelect("*******")
+      setPrecioSelect()
+    }
+  }
+
   useEffect(() => {
     getDataFromGecko().then(r => setCoins(r));
   }, []);
@@ -39,13 +52,13 @@ const Dashboard = () => {
       </h2>
       <ContenedorBotones>
         <Boton onClick={() => cambiarEstadoModal1(!estadoModal1)}>Compra</Boton>
-        <Boton onClick={() => cambiarEstadoModal2(!estadoModal2)}>Venta</Boton>
-        <Boton onClick={() => cambiarEstadoModal3(!estadoModal3)}>
+        <Boton isRed onClick={() => cambiarEstadoModal2(!estadoModal2)}>Venta</Boton>
+        {/* <Boton onClick={() => cambiarEstadoModal3(!estadoModal3)}>
           Movimientos
         </Boton>
         <Boton onClick={() => cambiarEstadoModal4(!estadoModal4)}>
           Usuario
-        </Boton>
+        </Boton> */}
       </ContenedorBotones>
       <Modal
         estado={estadoModal1}
@@ -58,24 +71,28 @@ const Dashboard = () => {
       >
         <Contenido>
           <p>Seleccione la moneda a utilizar</p>
-          <select>
-            <option value="1">Bitcoin BTC</option>
-            <option value="2">Ethereum ETH</option>
+          <select value={select.value} onChange={handleSelect}>
+            <option value="default">-----------</option>
+            <option value="bitcoin">Bitcoin BTC</option>
+            <option value="ethereum" >Ethereum ETH</option>
           </select>
-          <p>Tiene disponible la cantidad de: {monto}</p>
+        
+          <p>Tiene disponible la cantidad de: ${monto} ars</p>
+          <p>Precio de {select}: ${precioSelect} ars</p>
           <p>Ingrese la cantidad de monedas a comprar: </p>
 
           <input type="number" placeholder="Ingrese una cantidad aquí" />
 
           
 
-          <Boton onClick={() => cambiarEstadoModal1(!estadoModal1)}>
+          <Boton className="compra" onClick={() => cambiarEstadoModal1(!estadoModal1)}>
             Enviar
           </Boton>
         </Contenido>
       </Modal>
 
       <Modal
+        isRed="red"
         estado={estadoModal2}
         cambiarEstado={cambiarEstadoModal2}
         titulo="Venta"
@@ -84,26 +101,31 @@ const Dashboard = () => {
         posicionModal={"center"}
         padding={"20px"}
       >
-        <Contenido>
+        <Contenido isRed>
           <p>Seleccione la moneda a utilizar</p>
-          <select>
-            <option value="1">Bitcoin BTC</option>
-            <option value="2">Ethereum ETH</option>
+          <select value={select.value} onChange={handleSelect}>
+            <option value="default">-----------</option>
+            <option value="bitcoin">Bitcoin BTC</option>
+            <option value="ethereum" >Ethereum ETH</option>
           </select>
-          <p>Tiene disponible la cantidad de: </p>
+        
+          <p>Tiene disponible la cantidad de: ${monto} ars</p>
+          <p>Precio de {select}: ${precioSelect} ars</p>
           <p>Ingrese la cantidad de monedas a vender: </p>
 
           <input type="number" placeholder="Ingrese una cantidad aqui" />
 
           
 
-          <Boton onClick={() => cambiarEstadoModal1(!estadoModal1)}>
+          <Boton isRed onClick={() => cambiarEstadoModal1(!estadoModal1)}>
             Enviar
           </Boton>
         </Contenido>
       </Modal>
 
-      <Modal
+      {/* Funcionalidad de MOVIMIENTOS a desarrollar */}
+
+{/*       <Modal
         estado={estadoModal3}
         cambiarEstado={cambiarEstadoModal3}
         titulo="Ultimos movimientos"
@@ -119,7 +141,7 @@ const Dashboard = () => {
             <li>3</li>
             <li>4</li>
           </ol>
-
+ 
           
 
           <Boton onClick={() => cambiarEstadoModal1(!estadoModal1)}>
@@ -127,8 +149,11 @@ const Dashboard = () => {
           </Boton>
         </Contenido>
       </Modal>
+      */}
 
-      <Modal
+      {/* Funcionalidad de DATOS USUARIO a desarrollar */}
+
+      {/* <Modal
         estado={estadoModal4}
         cambiarEstado={cambiarEstadoModal4}
         titulo="Usuario"
@@ -144,7 +169,8 @@ const Dashboard = () => {
 
           
         </Contenido>
-      </Modal>
+      </Modal> */}
+
       <Cryptos coins={coins} />
     </div>
   );
@@ -165,12 +191,13 @@ const Boton = styled.button`
   padding: 10px 30px;
   border-radius: 100px;
   color: #fff;
+  background: ${props => (!props.isRed ? "#18a724" : "red")};
   border: none;
-  background: #18a724;
   cursor: pointer;
   font-family: "Roboto" sans-serif;
   font-weight: 500;
   transition: 0.3s ease all;
+
   &:hover {
     background: #000000;
   }
@@ -188,7 +215,7 @@ const Contenido = styled.div`
   p {
     font-size: 18px;
     margin-bottom: 20px;
-    color: #18a724;
+    color: ${props => (!props.isRed ? "#18a724" : "red")};
   }
   img {
     width: 100%;
@@ -206,7 +233,7 @@ const Contenido = styled.div`
   select {
     margin-bottom: 10px;
     color: #fff;
-    background: #18a724;
+    background: ${props => (!props.isRed ? "#18a724" : "red")};
     text-align: center;
     font-weight: bold;
     padding: 10px;
