@@ -24,7 +24,7 @@ const headers = {
 const obtenerMontoUsuario = (id) => {
   return new Promise((resolve, reject) => {
     const instance =  axios.create({
-      baseURL: "http://127.0.0.1:8000/api/wallets",
+      baseURL: window.location.origin + "/api/wallets",
       headers: headers,
     });
     instance

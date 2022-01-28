@@ -1,16 +1,10 @@
 import axios from "axios";
 
 export default function authRepository() {
-  /* let debug = true; */
 
   let baseUrl = window.location.origin + "/api/dj-rest-auth"
-  //let baseUrl = "http://127.0.0.1:8000/api/dj-rest-auth";
 
   const tokenName = "user_token";
-
-/*   const getLocalToken = () => {
-    return JSON.parse(localStorage.getItem(tokenName));
-  }; */
 
   //Funcion para obtener el token CSRF
   function getCookie(name) {
