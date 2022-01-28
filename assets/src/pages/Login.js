@@ -34,7 +34,6 @@ const Login = () => {
     authRepository()
       .logIn(user)
       .then((r) => {
-        console.log(r)
         navigate("/dashboard");
       })
       .catch((e) => alert("Usuario o contraseña incorrecta"));

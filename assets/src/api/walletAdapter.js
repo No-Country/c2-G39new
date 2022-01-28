@@ -28,7 +28,7 @@ const obtenerMontoUsuario = (id) => {
       headers: headers,
     });
     instance
-      .get(`/${id}`)
+      .get(`/${id}/`)
       .then((r) => {
         resolve(r.data.monto)
       })
