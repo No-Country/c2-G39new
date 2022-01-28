@@ -51,6 +51,7 @@ pip install -r requirements.txt
 ```
 python manage.py makemigrations api
 python manage.py migrate
+```
 
 8. Por ultimo, levantamos el servidor de Django ejecutando:
 ```
