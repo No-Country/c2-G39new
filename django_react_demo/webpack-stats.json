@@ -1,0 +1,18 @@
+{
+  "status": "done",
+  "assets": {
+    "main-f1d120fd8571682b1c9a.js": {
+      "name": "main-f1d120fd8571682b1c9a.js",
+      "path": "C:\\Users\\HP\\Desktop\\Estudio\\NoCountry\\Monedero\\assets\\bundles\\main-f1d120fd8571682b1c9a.js"
+    },
+    "ffa4e95cfc2a5172adc4.jpg": {
+      "name": "ffa4e95cfc2a5172adc4.jpg",
+      "path": "C:\\Users\\HP\\Desktop\\Estudio\\NoCountry\\Monedero\\assets\\bundles\\ffa4e95cfc2a5172adc4.jpg"
+    }
+  },
+  "chunks": {
+    "main": [
+      "main-f1d120fd8571682b1c9a.js"
+    ]
+  }
+}

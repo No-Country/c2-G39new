@@ -20,7 +20,7 @@ const AppRouter = () => {
           path="/dashboard"
           element={
             <PrivateRoute>
-              <Dashboard />
+              <Dashboard/>
             </PrivateRoute>
           }
         />
