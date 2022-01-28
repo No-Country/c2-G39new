@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import {
   obtenerMontoUsuario,
@@ -37,7 +36,6 @@ const Dashboard = () => {
       <h1>Dashboard</h1>
       <h2>
         Monto del usuario: <span>{monto}</span>
-        <button onClick={handleClickCompra}>Comprar</button>
       </h2>
       <ContenedorBotones>
         <Boton onClick={() => cambiarEstadoModal1(!estadoModal1)}>Compra</Boton>
@@ -64,7 +62,7 @@ const Dashboard = () => {
             <option value="1">Bitcoin BTC</option>
             <option value="2">Ethereum ETH</option>
           </select>
-          <p>Tiene disponible la cantidad de: </p>
+          <p>Tiene disponible la cantidad de: {monto}</p>
           <p>Ingrese la cantidad de monedas a comprar: </p>
 
           <input type="number" placeholder="Ingrese una cantidad aquí" />
