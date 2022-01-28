@@ -2,21 +2,50 @@
 
 {% block content %}
 
+
+   
+       {% if message != None %}
+        <div>
+            {{ message }}
+        </div>     
+       {% endif %}
+    
+    
    <div>
        <h1>Estas en el perfil de "{{ user.username|title }}"</h1>
        <img src="{{ picture }}" alt=""></p>
-   </div>
-
-   <div>
-       <p> Monto: {{ billetera.monto }} {{ billetera.tipo }}</p>
    </div>
 
    <form action="" method="post">
         {% csrf_token %}
     
         {{ trade_form.as_p }}
-        <button class="btn btn-primary" type="submit">Sign Up</button>
+        <button class="btn btn-primary" type="submit">Operar</button>
           
    </form>
+
+
+
+   <div>
+            
+    <table border="3" class="table table-bordered" >
+        <thead >
+            <tr>
+                <th><strong>Crypto</strong></th>
+                <th><strong>Cantidad</strong></th>
+            </tr>
+        </thead>
+        <tbody align="center">
+
+   {% for comprada in crypto_comprada %}
+        <tr>
+            <td>{{ comprada.crypto.name }}</td>
+            <td>{{ comprada.cantidad }}</td>
+        </tr>
+   {% endfor %}
+        </tbody>
+    </table>                     
+        <hr>
+</div>
 
 {% endblock content %}

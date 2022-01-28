@@ -7,6 +7,9 @@ from .forms import *
 import requests
 # Create your views here
 
+
+
+
 def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -47,23 +50,57 @@ def signup_view(request):
 
 @login_required
 def dashboard(request):
+    
     url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=USD&order=market_cap_desc&per_page=100&page=1&sparkline=false'
     data = requests.get(url).json()
-
+    
+    # test: crear cryptos en base de datos
+    for crypto in data:
+        crypto_qs = Crypto.objects.filter(name=crypto['name'])
+        if crypto_qs.exists():
+            continue
+        else:
+            Crypto.objects.create(name=crypto['name'])
+    
     context = {'data': data}
     
     return render(request, 'main.html', context)    
 
 @login_required
 def profile_view(request):
+    
+    url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=USD&order=market_cap_desc&per_page=100&page=1&sparkline=false'
+    data = requests.get(url).json()
+    
     user_p = get_object_or_404(User, pk=request.user.id )
     profile = Perfil.objects.get(user=user_p)
     billetera = Billetera.objects.get(user=user_p)
+    crypto_comprada = Crypto_comprada.objects.filter(billetera=billetera)
+    message = None
+    if request.method == 'POST':
+        form = Trade_form(request.POST)
+        """
+        name_filter=Crypto.objects.get(pk=form.data['coin_1']).name
+        
+        
+        cant = Trade.compra_precio(name_filter, float(form.data['cant_1']))
+        
+        crypto_c=Crypto.objects.get(pk=form.data['coin_1'])
+        crypto_i=Crypto.objects.get(pk=form.data['coin_2'])
+        cr_usada_qs = Crypto_comprada.objects.filter(billetera=bill, crypto=crypto_c)
+        cr_invert_qs = Crypto_comprada.objects.filter(billetera=bill, crypto=crypto_i)
+        """
+        bill=Billetera.objects.get(user=request.user)
+        message = Crypto_comprada.transaccion(form,bill)
+
     context ={
         'profile': profile,
         'user' : user_p,
         'billetera' : billetera,
-        'trade_form' : Trade_form
+        'crypto_comprada' : crypto_comprada,
+        'trade_form' : Trade_form,
+        'message' : message
+
         }
     return render(request, 'profile.html',context)    
 

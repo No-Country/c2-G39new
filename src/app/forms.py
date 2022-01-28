@@ -34,5 +34,8 @@ class LogInForm(forms.Form): #
 class Trade_form(ModelForm):
     class Meta:
         model = Trade
-        fields = ['cantidad','coin', 'type_of_order']
-        
+        fields = ('__all__')
+        #fields = ('coin_1',  'cant_1', 'coin_2', 'type_of_order')
+        #exclude = ('__all__')
+
+    
