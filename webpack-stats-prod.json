@@ -1,22 +1,22 @@
 {
   "status": "done",
   "assets": {
-    "main-c45a6f4b764d9b4020dc.js": {
-      "name": "main-c45a6f4b764d9b4020dc.js",
-      "path": "C:\\Users\\admin\\Documents\\PROYECTOS\\c2-G39new-deploy\\static\\dist\\main-c45a6f4b764d9b4020dc.js"
+    "main-2d268b36dab1a8652192.js": {
+      "name": "main-2d268b36dab1a8652192.js",
+      "path": "C:\\Users\\admin\\Documents\\PROYECTOS\\c2-G39new-deploy\\static\\dist\\main-2d268b36dab1a8652192.js"
     },
     "ffa4e95cfc2a5172adc4.jpg": {
       "name": "ffa4e95cfc2a5172adc4.jpg",
       "path": "C:\\Users\\admin\\Documents\\PROYECTOS\\c2-G39new-deploy\\static\\dist\\ffa4e95cfc2a5172adc4.jpg"
     },
-    "main-c45a6f4b764d9b4020dc.js.LICENSE.txt": {
-      "name": "main-c45a6f4b764d9b4020dc.js.LICENSE.txt",
-      "path": "C:\\Users\\admin\\Documents\\PROYECTOS\\c2-G39new-deploy\\static\\dist\\main-c45a6f4b764d9b4020dc.js.LICENSE.txt"
+    "main-2d268b36dab1a8652192.js.LICENSE.txt": {
+      "name": "main-2d268b36dab1a8652192.js.LICENSE.txt",
+      "path": "C:\\Users\\admin\\Documents\\PROYECTOS\\c2-G39new-deploy\\static\\dist\\main-2d268b36dab1a8652192.js.LICENSE.txt"
     }
   },
   "chunks": {
     "main": [
-      "main-c45a6f4b764d9b4020dc.js"
+      "main-2d268b36dab1a8652192.js"
     ]
   }
 }
